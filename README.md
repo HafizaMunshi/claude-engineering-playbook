@@ -1,6 +1,6 @@
 # Claude Engineering Playbook
 
-Hands-on proof of work for three Anthropic courses - **Claude 101**, **Claude Code 101** and
+Hands-on practice for three Anthropic courses - **Claude 101**, **Claude Code 101** and
 **Building with the Claude API** - applied to everyday senior-software-engineer tasks:
 code review, incident RCA, database investigation, testing, ADRs, release notes, log triage.
 
