@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(pytest:*)",
+      "Bash(python scripts/validate_claude_assets.py:*)",
+      "Read",
+      "Grep",
+      "Glob"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(git push --force:*)",
+      "Bash(rm -rf:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": "python .claude/hooks/block_dangerous_bash.py" }]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "python .claude/hooks/protect_secrets.py" }]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [{ "type": "command", "command": "python .claude/hooks/log_tool_use.py" }]
+      }
+    ]
+  }
+}

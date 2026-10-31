@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "dev-db": {
+      "command": "python",
+      "args": ["examples/mcp/db_server.py", "--db", "examples/mcp/sample.sqlite"]
+    },
+    "dev-tools": {
+      "command": "python",
+      "args": ["examples/mcp/devtools_server.py"]
+    }
+  }
+}

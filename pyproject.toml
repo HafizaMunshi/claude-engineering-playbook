@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-engineering-playbook"
+version = "0.1.0"
+description = "Hands-on proof of work: Claude 101, Claude Code 101 and Building with the Claude API, applied to everyday senior-engineer tasks."
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=1.0",
+    "mcp>=2.0",
+    "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
